@@ -20,6 +20,12 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
+		'pegawai' => array(),
+		'obat' => array(),
+		'user' => array(),
+		'wilayah' => array(),
+		'tindakan' => array(),
+		'transaksi' => array(),
 		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
@@ -39,16 +45,25 @@ return array(
 		),
 
 		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
+			'showScriptName' => false,
+			'rules'=>array_merge(
+			// 	// '<controller:\w+>/<id:\d+>'=>'<controller>/view',
+			// 	// '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+			// 	// '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				
+			// 	//admin rules
+			// 	'pegawai/<module:\w+>/<action:\w+>/<id:\d+>' => '<module>/admin/<action>',
+			// 	'pegawai/<module:\w+>/<action:\w+>' => '<module>/admin/<action>',
+			// 	'pegawai/<module:\w+>' => '<module>/admin',
+			// ),
+			array(),
+			require_once('protected/modules/pegawai/config/url-rules.php'),
+			)
 		),
-		*/
+		
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),
